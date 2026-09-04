@@ -8,6 +8,8 @@ info:
     url: "https://www.366.fr"
 security:
   - api_key: []
+servers:
+  - url: 'https://audience.api.claire.pub'
 paths:
   /v1/reach:
     post:
