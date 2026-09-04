@@ -1,0 +1,68 @@
+openapi: 3.0.3
+info:
+  title: Claire_ Audience API
+  description: Claire_ Audience API by 366
+  version: 1.0.0
+security:
+  - api_key: []
+paths:
+  /v1/reach:
+    post:
+      summary: Calculate Audience Reach
+      operationId: reach
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - query
+              properties:
+                query:
+                  type: string
+                  pattern: '^[ADNORTCS: \d\(\)]+$'
+                  description: Syntax-validated audience targeting string.
+                  example: "A:1234 AND (C:5678 OR CS:9012)"
+            examples:
+              validQuery:
+                value:
+                  query: "A:1234 AND CS:5678"
+      responses:
+        '200':
+          description: Successful reach calculation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reach:
+                    type: integer
+                    description: Total unique audience count
+                    example: 154300
+        '400':
+          description: Input validation error or query execution failure.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid input"
+                  details:
+                    type: object
+                    description: Detailed error messages (e.g., from VineJS validator).
+                  cause:
+                    type: object
+                    description: The original payload sent to the API.
+        '404':
+          description: Not Found.
+        '500':
+          description: Internal Server Error.
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
