@@ -40,7 +40,7 @@ jobs:
 
       # 7. Copy pages
       - name: Copy pages
-        run: cp docs/*.html public/*.html
+        run: cp docs/*.html public/
 
       # 8. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
