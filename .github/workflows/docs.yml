@@ -38,11 +38,11 @@ jobs:
 
       # 6. Copy spec
       - name: Copy spec
-        run: mkdir -p public/spec && cp spec/audience-api.yaml public/spec/
+        run: mkdir -p public/spec && cp spec/*.yaml public/spec/
 
-      # 7. Copy landing page
-      - name: Copy landing page
-        run: cp docs/index.html public/index.html
+      # 7. Copy pages
+      - name: Copy pages
+        run: cp docs/*.html public/*.html
 
       # 8. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
