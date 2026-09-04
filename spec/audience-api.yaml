@@ -3,6 +3,9 @@ info:
   title: Claire_ Audience API
   description: Claire_ Audience API by 366
   version: 1.0.0
+  license:
+    name: "Proprieraty / All rights reserved"
+    url: "https://www.366.fr"
 security:
   - api_key: []
 paths:
