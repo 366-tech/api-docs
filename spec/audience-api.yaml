@@ -27,7 +27,7 @@ paths:
                 query:
                   type: string
                   pattern: '^[ADNORTCS: \d\(\)]+$'
-                  description: Syntax-validated audience targeting string.
+                  description: Syntax-validated audience targeting boolean expression
                   example: "A:1234 AND (C:5678 OR CS:9012)"
             examples:
               validQuery:
